@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="CometBot">
+  <meta name="description" content="A free image hosting service for ShareX">
+  <title>Settings - Upload.cometbot.info</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./components/navbar.js"></script>
+
+  <header class="hero bg-success text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Settings</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="container py-3">
+      <h2>Account Settings</h2>
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Change Password</h5>
+          <form>
+            <div class="mb-3">
+              <label for="currentPassword" class="form-label">Current Password</label>
+              <input type="password" class="form-control" id="currentPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="newPassword" class="form-label">New Password</label>
+              <input type="password" class="form-control" id="newPassword" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm New Password</label>
+              <input type="password" class="form-control" id="confirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Change Password</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Delete Account</h5>
+          <p class="card-text">Deleting your account will permanently remove all your data.</p>
+          <button id="deleteAccountBtn" class="btn btn-danger">Delete Account</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="./components/footer.js"></script>
+  
+  <script>
+    const deleteAccountBtn = document.getElementById("deleteAccountBtn");
+
+    deleteAccountBtn.addEventListener("click", function () {
+      const confirmDelete = confirm("Are you sure you want to delete your account?");
+      if (confirmDelete) {
+        // Perform account deletion here
+        alert("Your account has been deleted.");
+      }
+    });
+  </script>
+</body>
+
+</html>
