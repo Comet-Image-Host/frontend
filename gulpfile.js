@@ -28,21 +28,29 @@ gulp.task('copy-robots', function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('modify-index-html', function() {
-    var indexHtmlPath = 'dist/index.html';
+gulp.task('modify-html-files', function() {
+    var htmlFiles = 'dist/*.html';
 
     if (isProduction) {
-        // Modify the index.html file for production deployment
+        // Modify the script paths in all HTML files for production deployment
         var fs = require('fs');
-        var indexHtmlContent = fs.readFileSync(indexHtmlPath, 'utf8');
-        var modifiedContent = indexHtmlContent.replace(
-            /<script src="\.\.\/components\/(.*)"><\/script>/g,
-            '<script src="./components/$1"></script>'
-        );
-        fs.writeFileSync(indexHtmlPath, modifiedContent, 'utf8');
+        var glob = require('glob');
+
+        glob(htmlFiles, function(err, files) {
+            if (err) throw err;
+
+            files.forEach(function(file) {
+                var htmlContent = fs.readFileSync(file, 'utf8');
+                var modifiedContent = htmlContent.replace(
+                    /<script src="\.\.\/components\/(.*?)"><\/script>/g,
+                    '<script src="./components/$1"></script>'
+                );
+                fs.writeFileSync(file, modifiedContent, 'utf8');
+            });
+        });
     }
 
     return Promise.resolve();
 });
 
-gulp.task('default', gulp.series('minify-js', 'minify-html', 'copy-robots', 'modify-index-html'));
+gulp.task('default', gulp.series('minify-js', 'minify-html', 'copy-robots', 'modify-html-files'));
