@@ -33,7 +33,8 @@ function renderNavbar() {
     const navItems = [
       { text: "Home", href: "index.html" },
       { text: "Login", href: "login.html" },
-      { text: "Register", href: "register.html" }
+      { text: "Register", href: "register.html" },
+      { text: "Dashboard", href: "dashboard.html" }
     ];
   
     navItems.forEach(item => {
