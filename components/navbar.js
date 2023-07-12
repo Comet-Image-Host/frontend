@@ -7,7 +7,7 @@ function renderNavbar() {
   
     const brandLink = document.createElement("a");
     brandLink.classList.add("navbar-brand");
-    brandLink.href = "#";
+    brandLink.href = "index.html";
     brandLink.textContent = "Upload.cometbot.info";
   
     const togglerButton = document.createElement("button");
@@ -34,6 +34,7 @@ function renderNavbar() {
       { text: "Home", href: "index.html" },
       { text: "Login", href: "login.html" },
       { text: "Register", href: "register.html" },
+      { text: "About", href: "about.html" },
       { text: "Dashboard", href: "dashboard.html" }
     ];
   

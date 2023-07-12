@@ -6,9 +6,13 @@ footer.classList.add('footer', 'bg-dark', 'text-white', 'py-3');
 const container = document.createElement('div');
 container.classList.add('container', 'text-center');
 
-// Create the paragraph element
+// Function to get the current year
+const getCurrentYear = () => new Date().getFullYear();
+
+// Create the paragraph element with the dynamic year
 const paragraph = document.createElement('p');
-paragraph.textContent = '\u00A9 2023 Upload.cometbot.info. All rights reserved.';
+paragraph.classList.add('footer-text');
+paragraph.textContent = `\u00A9 ${getCurrentYear()} Upload.cometbot.info. All rights reserved.`;
 
 // Append the paragraph element to the container element
 container.appendChild(paragraph);
@@ -17,4 +21,4 @@ container.appendChild(paragraph);
 footer.appendChild(container);
 
 // Append the footer element directly to the document body instead of using document.body
-document.body.append(footer);
+document.body.appendChild(footer);
