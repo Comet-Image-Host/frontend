@@ -19,17 +19,13 @@ function minifyJsTask(srcPath, destPath) {
 function modifyFilesTask(filePattern, findPattern, replaceWith) {
     return function() {
         if (isProduction) {
-            glob(filePattern, function(err, files) {
-                if (err) throw err;
-
-                files.forEach(function(file) {
-                    var fileContent = fs.readFileSync(file, 'utf8');
-                    var modifiedContent = fileContent.replace(findPattern, replaceWith);
-                    fs.writeFileSync(file, modifiedContent, 'utf8');
-                });
+            var files = glob.sync(filePattern);
+            files.forEach(function(file) {
+                var fileContent = fs.readFileSync(file, 'utf8');
+                var modifiedContent = fileContent.replace(findPattern, replaceWith);
+                fs.writeFileSync(file, modifiedContent, 'utf8');
             });
         }
-
         return Promise.resolve();
     }
 }
