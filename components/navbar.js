@@ -31,11 +31,11 @@ function renderNavbar() {
     navList.classList.add("navbar-nav", "ml-auto");
   
     const navItems = [
-      { text: "Home", href: "index.html" },
-      { text: "Login", href: "login.html" },
-      { text: "Register", href: "register.html" },
-      { text: "About", href: "about.html" },
-      { text: "Dashboard", href: "dashboard.html" }
+      { text: "Home", href: "../pages/index.html" },
+      { text: "Login", href: "../pages/login.html" },
+      { text: "Register", href: "../pages/register.html" },
+      { text: "About", href: "../pages/about.html" },
+      { text: "Dashboard", href: "../pages/dashboard.html" }
     ];
   
     navItems.forEach(item => {
