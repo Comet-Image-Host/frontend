@@ -1,11 +1,11 @@
 import { getFormInputValues, validatePasswordsMatch } from './utils.js';
 import { postRequest } from './api.js';
-import { API_ENDPOINTS, FORM_IDS, REDIRECT_URL } from './config.js';
+import { API_ENDPOINTS, REGISTER_FORM_IDS, REGISTER_REDIRECT_URL } from './config.js';
 
 async function handleResponse(responseData) {
     if (responseData && responseData.message === "User registered successfully") {
         alert("Registration successful");
-        window.location.replace(REDIRECT_URL);
+        window.location.replace(REGISTER_REDIRECT_URL);
     } else {
         alert(`Registration failed: ${responseData.detail}`);
     }
@@ -14,7 +14,7 @@ async function handleResponse(responseData) {
 async function registerUser(event) {
     event.preventDefault();
 
-    const formValues = getFormInputValues(FORM_IDS);
+    const formValues = getFormInputValues(REGISTER_FORM_IDS);
 
     if (!validatePasswordsMatch(formValues.password, formValues.confirmPassword)) {
         return;

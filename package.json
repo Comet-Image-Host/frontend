@@ -1,25 +1,20 @@
 {
-  "name": "frontend",
+  "name": "frontg",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp",
-    "dev": "npx serve"
-  },
+    "dev": "parcel ./pages/*.html --no-source-maps",
+    "build": "parcel build ./pages/*.html --no-source-maps && npx purgecss --css ./dist/*.css --content ./dist/*.html ./dist/*navbar*.js ./dist/*footer*.js --output ./dist && cp ./robots.txt ./dist/robots.txt"
+  },  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.22.8",
-    "@babel/preset-env": "^7.22.7",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-terser": "^2.1.0"
-  },
-  "dependencies": {
-    "glob": "^10.3.3"
+    "@babel/core": "^7.22.9",
+    "@babel/plugin-transform-runtime": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "parcel-bundler": "^1.12.5",
+    "purgecss": "^5.0.0"
   }
 }

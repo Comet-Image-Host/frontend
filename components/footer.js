@@ -1,18 +1,20 @@
 // Create the footer element
-const footer = document.createElement('footer');
+var footer = document.createElement('footer');
 footer.classList.add('footer', 'bg-dark', 'text-white', 'py-3');
 
 // Create the container element
-const container = document.createElement('div');
+var container = document.createElement('div');
 container.classList.add('container', 'text-center');
 
 // Function to get the current year
-const getCurrentYear = () => new Date().getFullYear();
+function getCurrentYear() {
+    return new Date().getFullYear();
+}
 
 // Create the paragraph element with the dynamic year
-const paragraph = document.createElement('p');
+var paragraph = document.createElement('p');
 paragraph.classList.add('footer-text');
-paragraph.textContent = `\u00A9 ${getCurrentYear()} Upload.cometbot.info. All rights reserved.`;
+paragraph.textContent = '\u00A9 ' + getCurrentYear() + ' Upload.cometbot.info. All rights reserved.';
 
 // Append the paragraph element to the container element
 container.appendChild(paragraph);
