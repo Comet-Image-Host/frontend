@@ -59,6 +59,14 @@ function renderNavbar() {
       navList.appendChild(listItem);
     });
 
+  // Add logout button
+  if (userLoggedIn) {
+    var logoutButton = document.createElement('button');
+    logoutButton.className = 'nav-link btn btn-link';
+    logoutButton.textContent = 'Logout';
+    navList.appendChild(logoutButton);
+  }
+
   collapseDiv.appendChild(navList);
   container.appendChild(brandLink);
   container.appendChild(togglerButton);

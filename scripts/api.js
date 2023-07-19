@@ -7,6 +7,7 @@ async function postRequest(url, requestBody) {
             "Content-Type": "application/json",
         },
         body: requestBody,
+        credentials: 'include', // This line is important
     });
     return await response.json();
 }
