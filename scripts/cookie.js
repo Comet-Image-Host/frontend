@@ -5,6 +5,6 @@ export function checkCookie(cookieName) {
   }
   
   export function isLoggedIn() {
-    return checkCookie('loggedin');
+    return checkCookie('session_id');
   }
   

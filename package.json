@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./pages/*.html --no-source-maps",
-    "build": "parcel build ./pages/*.html --no-source-maps && npx purgecss --css ./dist/*.css --content ./dist/*.html ./dist/*navbar*.js ./dist/*footer*.js --output ./dist && cp ./robots.txt ./dist/robots.txt"
-  },  
+    "build": "parcel build ./pages/*.html --no-source-maps && npx purgecss --css ./dist/*.css --content ./dist/*.html ./dist/*navbar*.js ./dist/*footer*.js --output ./dist && copyfiles ./robots.txt ./dist"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -14,6 +14,7 @@
     "@babel/core": "^7.22.9",
     "@babel/plugin-transform-runtime": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
+    "copyfiles": "^2.4.1",
     "parcel-bundler": "^1.12.5",
     "purgecss": "^5.0.0"
   }
